@@ -48,26 +48,13 @@ export class OrderControllerBase {
   })
   async create(@common.Body() data: OrderCreateInput): Promise<Order> {
     return await this.service.create({
-      data: {
-        ...data,
-
-        user: data.user
-          ? {
-              connect: data.user,
-            }
-          : undefined,
-      },
+      data: data,
       select: {
         createdAt: true,
         id: true,
         item: true,
         updatedAt: true,
-
-        user: {
-          select: {
-            id: true,
-          },
-        },
+        userId: true,
       },
     });
   }
@@ -93,12 +80,7 @@ export class OrderControllerBase {
         id: true,
         item: true,
         updatedAt: true,
-
-        user: {
-          select: {
-            id: true,
-          },
-        },
+        userId: true,
       },
     });
   }
@@ -125,12 +107,7 @@ export class OrderControllerBase {
         id: true,
         item: true,
         updatedAt: true,
-
-        user: {
-          select: {
-            id: true,
-          },
-        },
+        userId: true,
       },
     });
     if (result === null) {
@@ -160,26 +137,13 @@ export class OrderControllerBase {
     try {
       return await this.service.update({
         where: params,
-        data: {
-          ...data,
-
-          user: data.user
-            ? {
-                connect: data.user,
-              }
-            : undefined,
-        },
+        data: data,
         select: {
           createdAt: true,
           id: true,
           item: true,
           updatedAt: true,
-
-          user: {
-            select: {
-              id: true,
-            },
-          },
+          userId: true,
         },
       });
     } catch (error) {
@@ -214,12 +178,7 @@ export class OrderControllerBase {
           id: true,
           item: true,
           updatedAt: true,
-
-          user: {
-            select: {
-              id: true,
-            },
-          },
+          userId: true,
         },
       });
     } catch (error) {

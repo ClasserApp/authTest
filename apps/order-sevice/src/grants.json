@@ -38,18 +38,6 @@
   {
     "role": "admin",
     "resource": "User",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "user",
-    "resource": "User",
-    "action": "delete:any",
-    "attributes": "*"
-  },
-  {
-    "role": "admin",
-    "resource": "User",
     "action": "read:any",
     "attributes": "*"
   },
